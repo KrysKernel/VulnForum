@@ -112,7 +112,6 @@ vulnforum/
 From the repository root:
 
 ```bash
-mkdir -p public/uploads && chmod 777 public/uploads
 docker compose up -d --build
 ```
 
