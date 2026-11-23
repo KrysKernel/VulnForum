@@ -225,3 +225,27 @@ python3 attacker_server.py
 ## License & Legal Notice
 
 This project is strictly for defensive security education, ethical hacking laboratories, and authorized research. Misuse of these techniques against systems without explicit authorization is strictly prohibited.
+
+---
+
+## Donate
+
+If you find this project useful, you can support the development:
+
+### Buy Me a Coffee
+
+<p align="center">
+  <a href="https://buymeacoffee.com/chris0571" target="_blank">
+    <img src="public/uploads/qr-code.png" alt="Buy Me a Coffee QR Code" width="220"/>
+  </a><br/>
+  <a href="buymeacoffee.com/kryskernel" target="_blank"><b>buymeacoffee.com/kryskernel</b></a>
+</p>
+
+### Bitcoin
+
+<p align="center">
+  <img src="public/uploads/btc1.jpg" alt="Bitcoin Donation QR" width="220"/><br/>
+  <code>bc1qh40vyg6m4aakxlmxmd9qn5hqq5wq85sg7pw2rz</code>
+</p>
+
+---
