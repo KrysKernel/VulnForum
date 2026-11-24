@@ -237,7 +237,7 @@ If you find this project useful, you can support the development:
   <a href="https://buymeacoffee.com/chris0571" target="_blank">
     <img src="public/uploads/qr-code.png" alt="Buy Me a Coffee QR Code" width="220"/>
   </a><br/>
-  <a href="buymeacoffee.com/kryskernel" target="_blank"><b>buymeacoffee.com/kryskernel</b></a>
+  <a href="https://buymeacoffee.com/kryskernel" target="_blank"><b>buymeacoffee.com/kryskernel</b></a>
 </p>
 
 ### Bitcoin
