@@ -21,8 +21,10 @@ $statsRow = db_raw_query("
       (SELECT COUNT(*) FROM users) AS user_count
 ")->fetch_assoc();
 
-$members = db_raw_query("SELECT username, role, bio, avatar FROM users ORDER BY id ASC LIMIT 6");
 $me = current_user();
+$members = $me
+    ? db_raw_query("SELECT username, role, bio, avatar FROM users ORDER BY id ASC LIMIT 6")
+    : null;
 $flash = $_SESSION['forum_flash'] ?? null;
 unset($_SESSION['forum_flash']);
 ?>
@@ -139,28 +141,30 @@ unset($_SESSION['forum_flash']);
       </div>
     </div>
 
-    <div class="widget">
-      <h2 class="widget-title">
-        <?= vf_icon('users', 15) ?>
-        <span>Members</span>
-      </h2>
-      <div class="member-list">
-        <?php while ($m = $members->fetch_assoc()): ?>
-          <div class="member-row">
-            <?= vf_avatar($m['username'], 'sm', $m['avatar'] ?? null) ?>
-            <div class="member-info">
-              <span class="member-name"><?= htmlspecialchars($m['username']) ?></span>
-              <?php if (!empty($m['bio'])): ?>
-                <span class="member-bio"><?= htmlspecialchars($m['bio']) ?></span>
-              <?php endif; ?>
+    <?php if ($me && $members): ?>
+      <div class="widget">
+        <h2 class="widget-title">
+          <?= vf_icon('users', 15) ?>
+          <span>Members</span>
+        </h2>
+        <div class="member-list">
+          <?php while ($m = $members->fetch_assoc()): ?>
+            <div class="member-row">
+              <?= vf_avatar($m['username'], 'sm', $m['avatar'] ?? null) ?>
+              <div class="member-info">
+                <span class="member-name"><?= htmlspecialchars($m['username']) ?></span>
+                <?php if (!empty($m['bio'])): ?>
+                  <span class="member-bio"><?= htmlspecialchars($m['bio']) ?></span>
+                <?php endif; ?>
+              </div>
+              <span class="badge <?= $m['role'] === 'admin' ? 'badge-admin' : 'badge-user' ?>">
+                <?= htmlspecialchars($m['role']) ?>
+              </span>
             </div>
-            <span class="badge <?= $m['role'] === 'admin' ? 'badge-admin' : 'badge-user' ?>">
-              <?= htmlspecialchars($m['role']) ?>
-            </span>
-          </div>
-        <?php endwhile; ?>
+          <?php endwhile; ?>
+        </div>
       </div>
-    </div>
+    <?php endif; ?>
 
     <div class="widget">
       <h2 class="widget-title">
