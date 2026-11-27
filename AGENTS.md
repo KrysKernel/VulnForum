@@ -61,7 +61,7 @@ vulnforum/
 │   │   └── profile.php            # Profile view + avatar upload (intentional arbitrary PHP upload to /uploads/)
 │   ├── css/style.css              # Dark/light theme styles (CSS custom properties)
 │   ├── js/app.js                  # Vanilla JS UI behaviors via data-* hooks
-│   └── uploads/                   # Writable webroot upload dir; contains tracked README donation images (btc1.jpg, qr-code.png)
+│   └── uploads/                   # Writable webroot upload dir; contains tracked README images (btc1.jpg, qr-code.png, FrontPage.png)
 ├── XSS/
 │   ├── attacker_server.py         # Flask GET /steal?data=... listener (writes stolen_cookies.txt)
 │   └── STORED_XSS_GUIDE.md        # Educational walkthrough for Stored XSS (#13)
@@ -140,7 +140,7 @@ python3 XSS/attacker_server.py
 ## 7. Known Quirks & Pitfalls
 
 1. **`require_login()` redirect path (`public/includes/auth.php`):** Redirects to `/?page=login` instead of `/?page=pages/login` (which causes a failed include in `index.php` because the file is `public/pages/login.php`). Notice `delete_thread.php` and `delete_reply.php` redirect manually to `/?page=pages/login` to avoid this. Be aware of this before relying on `require_login()` for unauthenticated flows (only fix it if asked).
-2. **Tracked images in `public/uploads/`:** `public/uploads/btc1.jpg` and `public/uploads/qr-code.png` are committed in Git and embedded in `README.md`. Do not delete them when cleaning uploads.
+2. **Tracked images in `public/uploads/`:** `public/uploads/FrontPage.png`, `public/uploads/btc1.jpg`, and `public/uploads/qr-code.png` are committed in Git (or referenced/embedded in `README.md`). Do not delete them when cleaning uploads.
 3. **Untracked lab artifacts:** `.gitignore` only ignores OS/editor files and `*.log`. Uploaded test files in `public/uploads/` (e.g., `shell.php`) and `stolen_cookies.txt` created by `XSS/attacker_server.py` are **not** gitignored — clean them up before committing.
 4. **`README.md` listener path:** `README.md` shows `python3 attacker_server.py`, but the script actually lives at `XSS/attacker_server.py`.
 5. **Login-gated Members sidebar:** In `public/pages/home.php`, the sidebar Members list is intentionally hidden for anonymous visitors (`$me && $members`) per commit `4ed1321`.

@@ -8,6 +8,8 @@
 
 **VulnForum** is an intentionally vulnerable classic LAMP-stack discussion forum built with vanilla PHP 8.2, Apache 2.4, and MySQL 8.0 to demonstrate legacy web application flaws, offensive attack chains, and defensive remediation practices in a self-contained Docker lab.
 
+![VulnForum Front Page](public/uploads/FrontPage.png)
+
 > [!CAUTION]
 > **DISCLAIMER: FOR EDUCATIONAL AND LAB USE ONLY**
 > This application contains **19+ intentional critical vulnerabilities** (including direct `eval()` RCE, arbitrary PHP webshell upload, PHP Object Injection, LFI, SQL Injection, and Stored/Reflected XSS). **Never deploy or expose this application to the public internet or untrusted networks.** Run only within isolated local or lab environments.
